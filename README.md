@@ -134,10 +134,4 @@ Data & ML Engineer | AWS Developer | React & Node Enthusiast
 
 ---
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-_Last updated: 2025-07-29 10:03:55_
