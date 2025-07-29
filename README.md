@@ -88,7 +88,7 @@ npm run dev            # in /backend
 <img width="307" height="372" alt="Screenshot 2025-07-29 105305" src="https://github.com/user-attachments/assets/a835e4b5-8123-4f8b-a152-36d4f31341b3" />
 
 ```env
-SAGEMAKER_ENDPOINT=diabetes-prediction-endpoint-corrected-20250728-064405
+
 ```
 
 ---
