@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# 🧠 Advanced Diabetes Prediction System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered web application that predicts **diabetes risk** and provides **personalized health recommendations** using a machine learning model trained on clinical and lifestyle features.
 
-## Available Scripts
+![License](https://img.shields.io/badge/license-MIT-green)
+![Made with AWS](https://img.shields.io/badge/AWS-SageMaker-blue)
+![Status](https://img.shields.io/badge/status-Deployed%20Locally%20%26%20SageMaker-success)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This system uses an advanced ML model trained with real-world health data to:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Predict if a person is at risk of diabetes (Low, Moderate, High).
+- Generate actionable recommendations based on risk.
+- Provide real-time predictions via a hosted **SageMaker endpoint**.
+- Offer an interactive UI built with React + Node.js backend.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🧠 Key Features
 
-### `npm run build`
+- ✅ Predict diabetes risk before onset (early detection).
+- 📊 ML Model Accuracy: **94.5%**
+- 🧾 Risk levels: High, Low
+- 📈 Personalized diet, lifestyle & monitoring plans
+- 🔗 Real-time predictions with AWS SageMaker
+- 🔐 Local deployment for privacy-first testing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Layer | Technology |
+|------|-------------|
+| 🖥️ Frontend | React.js |
+| 🌐 Backend | Node.js |
+| 🤖 ML Deployment | AWS SageMaker |
+| 📦 Model Format | Pickle (.pkl) |
+| 🧪 Testing Tool | Postman / Web UI |
+| ☁️ Cloud | AWS S3, SageMaker |
+| 🔒 Auth (Optional) | Local-only access |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📂 Folder Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+diabetes-prediction-app/
+├── backend/                # Node.js backend (API logic)
+├── frontend/               # React app (user interface)
+├── inference.py            # SageMaker inference script
+├── enhanced_diabetes_model_v2.pkl  # Trained model
+├── requirements.txt        # Python dependencies
+└── README.md               # Project documentation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠️ How to Run Locally
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+# 1. Clone the repository
+git clone https://github.com/AbilashEG/advanced-diabetes-prediction.git
 
-### Code Splitting
+# 2. Navigate to backend and install dependencies
+cd backend
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# 3. Navigate to frontend and install dependencies
+cd ../frontend
+npm install
 
-### Analyzing the Bundle Size
+# 4. Start frontend and backend separately
+npm start              # in /frontend
+npm run dev            # in /backend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🌐 SageMaker Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Model trained and exported as `.pkl`
+- Packaged with `inference.py`
+- Uploaded to **S3** and deployed via **SKLearnModel**
+- Endpoint used in `backend/.env` as:
+<img width="307" height="372" alt="Screenshot 2025-07-29 105305" src="https://github.com/user-attachments/assets/a835e4b5-8123-4f8b-a152-36d4f31341b3" />
 
-### Advanced Configuration
+```env
+SAGEMAKER_ENDPOINT=diabetes-prediction-endpoint-corrected-20250728-064405
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🧪 Sample Test Output
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```json
+{
+  "prediction": 1,
+  "risk_level": "High Risk",
+  "probability": 0.94,
+  "recommendations": {
+    "diet": ["Follow low-carb diet", "Limit sugar intake"],
+    "exercise": ["150+ minutes moderate exercise weekly", "Strength training 2-3x/week"],
+    "lifestyle": ["Regular sleep", "Manage stress"],
+    "monitoring": ["Monitor blood glucose daily", "Check HbA1c every 3 months"]
+  }
+}
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📸 Screenshots
+<img width="1841" height="951" alt="Screenshot 2025-07-28 173037" src="https://github.com/user-attachments/assets/87070fed-3a1a-49d7-8e42-12a11e2eb7a5" />
+<img width="1819" height="918" alt="Screenshot 2025-07-28 151031" src="https://github.com/user-attachments/assets/18ca797b-7ede-4d35-ab89-fd5973c64ade" />
+<img width="1829" height="925" alt="Screenshot 2025-07-28 173212" src="https://github.com/user-attachments/assets/d5642281-4830-44e8-86f8-df2ae4222d6f" />
+<img width="1769" height="917" alt="Screenshot 2025-07-28 173222" src="https://github.com/user-attachments/assets/a29aeed1-3477-429d-9b62-901cf39880fc" />
+
+
+> Include screenshots of:
+> - Prediction form (React UI)
+> - Recommendation output
+> - Terminal logs
+> - SageMaker dashboard
+
+---
+
+## 👤 Author
+
+**Abilash EG**  
+Data & ML Engineer | AWS Developer | React & Node Enthusiast  
+📬 [GitHub Profile](https://github.com/AbilashEG)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+_Last updated: 2025-07-29 10:03:55_
